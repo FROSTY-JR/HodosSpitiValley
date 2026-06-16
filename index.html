@@ -351,6 +351,13 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
   .footer-grid{grid-template-columns:1fr;gap:40px}
   .footer-bottom{flex-direction:column;gap:12px;text-align:center}
 }
+
+/* Belt-and-suspenders: hide the floating experience image on any
+   touch-primary device, even one (like iPad, or iPhone with "Request
+   Desktop Website" on) that reports a viewport wider than 768px. */
+@media (hover:none) and (pointer:coarse){
+  .exp-right{display:none}
+}
 </style>
 </head>
 <body>
@@ -680,8 +687,14 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
 // 1. VISCOUS SMOOTH SCROLL — friction + inertia
 // ══════════════════════════════════════════
 (function(){
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  if(isMobile){ window._smoothScroller = null; return; }
+  // Use real touch-capability detection, not user-agent sniffing.
+  // iPadOS Safari (and iPhone Safari with "Request Desktop Website" on)
+  // reports a desktop-style UA with no "Mobile" string, which used to
+  // slip past the old /Mobi|Android/ check and trigger the wheel-only
+  // smooth-scroll hijack below on a touch device - breaking anything
+  // (like the route-map jeep) that listens for native window scroll.
+  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || /Mobi|Android/i.test(navigator.userAgent);
+  if(isTouch){ window._smoothScroller = null; return; }
 
   let rendered = window.scrollY;
   let target   = window.scrollY;
@@ -705,7 +718,10 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
   while(document.body.firstChild) inner.appendChild(document.body.firstChild);
   document.body.appendChild(inner);
 
-  inner.addEventListener('scroll', () => { target = inner.scrollTop; }, {passive:true});
+  inner.addEventListener('scroll', () => {
+    target = inner.scrollTop;
+    window.dispatchEvent(new Event('scroll', {bubbles:false}));
+  }, {passive:true});
 
   inner.addEventListener('wheel', e => {
     e.preventDefault();
@@ -725,8 +741,6 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
     rendered = Math.max(0, Math.min(maxScroll, rendered));
 
     inner.scrollTop = Math.round(rendered);
-
-    window.dispatchEvent(new Event('scroll', {bubbles:false}));
 
     if(rafId) rafId = requestAnimationFrame(tick);
   }
