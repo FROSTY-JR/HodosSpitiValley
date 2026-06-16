@@ -330,7 +330,7 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
   .scene-content.right{text-align:left;margin-left:0}
   .scene::before,.scene::after{height:30vh}
   #experiences{padding:80px 24px;grid-template-columns:1fr;gap:48px}
-  .exp-right{position:static}
+  .exp-right{position:static;display:none}
   #memories{padding:80px 24px}
   .polaroids{grid-template-columns:1fr 1fr;gap:8px}
   .polar:nth-child(n){margin-top:0}
@@ -556,7 +556,7 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
     <div class="pitch-meta">
       <div class="pitch-stat"><strong>3 — 11 July 2026</strong>Dates</div>
       <div class="pitch-stat"><strong>12 Travellers</strong>Group Size</div>
-      <div class="pitch-stat"><strong>₹34,999</strong>Per Person</div>
+      <div class="pitch-stat"><strong>₹34,999*</strong>Per Person</div>
     </div>
   </div>
 </section>
@@ -616,7 +616,7 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
       <div class="trip-row"><span>Dates</span><span class="val">3 — 11 July 2026</span></div>
       <div class="trip-row"><span>Group size</span><span class="val">12 travellers</span></div>
       <div class="trip-row"><span>Start / End</span><span class="val">Chandigarh</span></div>
-      <div class="trip-row"><span>Investment</span><span class="val orange">₹34,999 / person</span></div>
+      <div class="trip-row"><span>Investment</span><span class="val orange">₹34,999* / person</span></div>
     </div>
   </div>
   <form class="res-form fade-up" id="reserveForm" method="POST" action="https://formsubmit.co/hodos.intl@gmail.com">
@@ -665,7 +665,7 @@ footer{background:#070707;padding:60px 64px 40px;border-top:1px solid rgba(248,2
       <ul>
         <li>Spiti Valley Expedition</li>
         <li>3 — 11 July 2026</li>
-        <li>12 Travellers · ₹34,999</li>
+        <li>12 Travellers · ₹34,999*</li>
       </ul>
     </div>
   </div>
@@ -942,6 +942,23 @@ routeStopsIO.observe(routeSection);
   const ctx    = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
 
+  // Helper: draw rounded rectangle for older Safari (replacement for ctx.roundRect)
+  function roundRect(ctx,x,y,w,h,r){
+    if(typeof r === 'number') r = [r,r,r,r];
+    const [rTL,rTR,rBR,rBL] = r;
+    ctx.beginPath();
+    ctx.moveTo(x + rTL, y);
+    ctx.lineTo(x + w - rTR, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + rTR);
+    ctx.lineTo(x + w, y + h - rBR);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - rBR, y + h);
+    ctx.lineTo(x + rBL, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - rBL);
+    ctx.lineTo(x, y + rTL);
+    ctx.quadraticCurveTo(x, y, x + rTL, y);
+    ctx.closePath();
+  }
+
   const stops = [
     [295, 55],  [210, 130], [150, 220], [240, 310],
     [160, 400], [260, 460], [175, 530], [290, 560], [260, 600],
@@ -969,12 +986,12 @@ routeStopsIO.observe(routeSection);
     const s=12;
     ctx.shadowColor='rgba(214,122,50,.5)'; ctx.shadowBlur=10;
     ctx.fillStyle='#D67A32';
-    ctx.beginPath(); ctx.roundRect(-s*.68,-s,s*1.36,s*2.2,2); ctx.fill();
+    roundRect(ctx, -s*.68, -s, s*1.36, s*2.2, 2); ctx.fill();
     ctx.shadowBlur=0;
     ctx.fillStyle='#c06820';
-    ctx.beginPath(); ctx.roundRect(-s*.55,-s,s*1.1,s*.55,1); ctx.fill();
+    roundRect(ctx, -s*.55, -s, s*1.1, s*.55, 1); ctx.fill();
     ctx.fillStyle='rgba(8,9,10,.72)';
-    ctx.beginPath(); ctx.roundRect(-s*.5,-s*.5,s,s*.85,1); ctx.fill();
+    roundRect(ctx, -s*.5, -s*.5, s, s*.85, 1); ctx.fill();
     ctx.strokeStyle='rgba(255,255,255,.15)'; ctx.lineWidth=.8;
     ctx.beginPath(); ctx.moveTo(-s*.42,-s*.48); ctx.lineTo(s*.42,-s*.48); ctx.stroke();
     ctx.fillStyle='#111';
@@ -984,7 +1001,7 @@ routeStopsIO.observe(routeSection);
       ctx.beginPath(); ctx.ellipse(wx,wy,1.8,1.2,Math.PI/2,0,Math.PI*2); ctx.stroke();
     });
     ctx.strokeStyle='rgba(255,255,255,.3)'; ctx.lineWidth=1;
-    ctx.beginPath(); ctx.roundRect(-s*.48,-s*.97,s*.96,.1,1); ctx.stroke();
+    roundRect(ctx, -s*.48, -s*.97, s*.96, .1, 1); ctx.stroke();
     ctx.fillStyle='rgba(255,240,180,.9)';
     [[-s*.38,-s*.95],[s*.38,-s*.95]].forEach(([hx,hy])=>{
       ctx.beginPath(); ctx.ellipse(hx,hy,2.2,1.2,0,0,Math.PI*2); ctx.fill();
