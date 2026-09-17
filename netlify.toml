@@ -1,0 +1,44 @@
+[build]
+  command = "npm run build:netlify"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Concrete exported pages, not an SPA catch-all: unknown URLs remain real 404s.
+[[redirects]]
+  from = "/curated"
+  to = "/curated.html"
+  status = 200
+[[redirects]]
+  from = "/curated/spiti"
+  to = "/curated/spiti.html"
+  status = 200
+[[redirects]]
+  from = "/curated/varkala"
+  to = "/curated/varkala.html"
+  status = 200
+[[redirects]]
+  from = "/originals"
+  to = "/originals.html"
+  status = 200
+[[redirects]]
+  from = "/experiences/hampi"
+  to = "/experiences/hampi.html"
+  status = 200
+[[redirects]]
+  from = "/experiences/varanasi"
+  to = "/experiences/varanasi.html"
+  status = 200
+[[redirects]]
+  from = "/experiences/coorg"
+  to = "/experiences/coorg.html"
+  status = 200
