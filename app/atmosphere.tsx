@@ -11,10 +11,10 @@ void main(){
  vec2 p=uv;float r=resolution.x/resolution.y;float ir=imageSize.x/imageSize.y;
  vec2 fit=r>ir?vec2(1.,ir/r):vec2(r/ir,1.);
  float depth=.3+.7*pow(1.-p.y,2.);
- p.x+=(p.y-.5)*pointer.x*.025;
- p.y+=(p.x-.5)*pointer.y*.012;
+ p.x+=(p.y-.5)*pointer.x*.021;
+ p.y+=(p.x-.5)*pointer.y*.010;
  p=(p-.5)*fit*.86+.5;
- p+=pointer*.045*depth+vec2(sin(time*.065)*.003,cos(time*.048)*.002);
+ p+=pointer*.038*depth+vec2(sin(time*.065)*.003,cos(time*.048)*.002);
  float water=1.-smoothstep(.03,.23,p.y);
  p.x+=sin(p.y*180.+time*.6)*.0005*water;
  vec3 col=texture2D(scene,p).rgb;
@@ -44,7 +44,7 @@ export default function Atmosphere({src}:{src:string}) {
    clock+=last?Math.min((now-last)/1000,.05):0;last=now;smooth.x+=(target.x-smooth.x)*.075;smooth.y+=(target.y-smooth.y)*.075;
    gl!.uniform2f(uniforms.resolution,node!.width,node!.height);gl!.uniform2f(uniforms.pointer,smooth.x,smooth.y);gl!.uniform1f(uniforms.time,clock);gl!.drawArrays(gl!.TRIANGLE_STRIP,0,4);
    ctx!.clearRect(0,0,dust!.width,dust!.height);
-   for(let i=0;i<26;i++){const x=((i*.618033* dust!.width+Math.sin(clock*.12+i)*30+smooth.x*(25+i%5*12))%dust!.width+dust!.width)%dust!.width;const y=(dust!.height-((clock*(5+i%5)+i*73+smooth.y*45)%(dust!.height*.9)));const alpha=(.15+.17*Math.sin(clock*.7+i))*Math.min(1,y/80);ctx!.beginPath();ctx!.fillStyle=`rgba(233,177,102,${Math.max(0,alpha)})`;ctx!.shadowColor='#e7b16a';ctx!.shadowBlur=8;ctx!.arc(x,y,.7+(i%3)*.45,0,Math.PI*2);ctx!.fill();}ctx!.shadowBlur=0;
+   for(let i=0;i<26;i++){const x=((i*.618033* dust!.width+Math.sin(clock*.12+i)*30+smooth.x*(21+i%5*10))%dust!.width+dust!.width)%dust!.width;const y=(dust!.height-((clock*(5+i%5)+i*73+smooth.y*38)%(dust!.height*.9)));const alpha=(.15+.17*Math.sin(clock*.7+i))*Math.min(1,y/80);ctx!.beginPath();ctx!.fillStyle=`rgba(233,177,102,${Math.max(0,alpha)})`;ctx!.shadowColor='#e7b16a';ctx!.shadowBlur=8;ctx!.arc(x,y,.7+(i%3)*.45,0,Math.PI*2);ctx!.fill();}ctx!.shadowBlur=0;
    frame=requestAnimationFrame(render);
   }
   function wake(){if(!disposed&&visible&&!document.hidden&&loaded&&!frame){last=0;frame=requestAnimationFrame(render);}}

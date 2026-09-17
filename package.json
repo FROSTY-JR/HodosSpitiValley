@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build",
-    "start": "wrangler dev --config dist/server/wrangler.json",
+    "build": "node scripts/build-netlify.mjs",
+    "start": "node scripts/preview-static.mjs",
     "lint": "oxlint",
     "format": "oxfmt",
     "build:netlify": "node scripts/build-netlify.mjs",
@@ -37,9 +37,6 @@
     "vinext": "1.0.0-beta.10"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.55.0",
-    "@cloudflare/workers-types": "5.20260917.1",
-    "@openai/sites-vite-plugin": "0.2.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
@@ -51,8 +48,7 @@
     "oxlint-tsgolint": "7.0.2001",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
-    "vite": "8.3.0",
-    "wrangler": "4.134.0"
+    "vite": "8.3.0"
   },
   "type": "module"
 }

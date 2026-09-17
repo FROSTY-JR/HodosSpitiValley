@@ -21,11 +21,11 @@ npm run dev
 
 For manual Netlify Drop: run `npm run build:netlify`, then upload the contents of `dist/client`. Git import is preferred because it applies the Netlify headers and route configuration automatically.
 
-The Netlify build exports static HTML, CSS, JavaScript and assets. Do not deploy `dist/server` to Netlify or use the standard Sites `npm run build` output there. The static export includes all three dynamic destination slugs through `generateStaticParams`. No backend, payment processing, form storage, private authentication or API keys are required by the website.
+The Netlify build exports static HTML, CSS, JavaScript and assets. Do not deploy `dist/server` to Netlify. The static export includes all three dynamic destination slugs through `generateStaticParams`. No backend, payment processing, form storage, private authentication or API keys are required by the website.
 
-## Existing Sites hosting
+## Hosting independence
 
-`npm run build` retains the separate Cloudflare/Sites build. `.openai/hosting.json` contains non-secret site configuration only. Netlify builds skip the Sites and Cloudflare runtime plugins. Existing Sites private access does not transfer to Netlify; choose the Netlify site's access settings in its dashboard.
+This repository builds for Netlify without OpenAI or Cloudflare hosting configuration. `npm run build` and `npm run build:netlify` both produce the static site in `dist/client`. `npm start` previews it locally. The previous Sites deployment is not updated by this repository; its private access settings do not transfer to Netlify.
 
 ## Content and contact
 
