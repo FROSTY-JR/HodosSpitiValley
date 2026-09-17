@@ -22,3 +22,8 @@
 
 .footer-phone{display:block;width:fit-content;margin:18px 0;color:var(--cream);font-size:16px}.enquiry-phone{display:block;width:fit-content;margin:24px auto 0;color:var(--cream);font-size:18px;text-decoration:underline;text-underline-offset:5px}.footer-phone:hover,.enquiry-phone:hover{color:var(--frost)}
 .brand>img{display:block;width:150px;height:auto;max-width:none}.brand>span{margin-top:8px}.signature-logo{display:block;width:145px;height:auto}.carousel-actions button,.lightbox-controls button{width:auto;min-width:44px;padding:10px 14px;font-size:13px}.enquiry-phone{white-space:nowrap}@media(max-width:760px){.brand>img{width:112px}.brand>span{font-size:7px}.carousel-actions button{padding:9px 12px}.footer-main .brand>img{width:145px}}
+
+.cinema-copy .experiential-headline{font-size:clamp(3.5rem,5.1vw,6rem)}
+.experiential-headline>span{display:block;font-size:.43em;line-height:1.25;letter-spacing:0;font-weight:400}
+.experiential-headline>em{display:block;margin:12px 0 16px;line-height:.95}
+@media(max-width:760px){.cinema-copy .experiential-headline{font-size:clamp(2.9rem,12vw,4.5rem)}}
