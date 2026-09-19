@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
 const trips=[
- {name:'Varkala',region:'KERALA, INDIA',line:'Waves, cliffs & a little chaos.',date:'18—20 SEPTEMBER 2026',route:'Bangalore / Varkala',facts:'3 days · ₹15,000 trip price',href:'/curated/varkala',images:['/images/varkala/dusk.webp','/images/varkala/surf.webp','/images/varkala/cafe.webp'],alts:['Palm-lined Varkala coast at dusk','Surfers on Varkala beach','Cliffside café overlooking the sea']},
+ {name:'Varkala',region:'KERALA, INDIA',line:'Waves, cliffs & a little chaos.',date:'September Expedition',route:'Bangalore / Varkala',facts:'3 days · ₹15,000 trip price',href:'/curated/varkala',images:['/images/varkala/dusk.webp','/images/varkala/surf.webp','/images/varkala/cafe.webp'],alts:['Palm-lined Varkala coast at dusk','Surfers on Varkala beach','Cliffside café overlooking the sea']},
  {name:'Spiti Valley',region:'HIMACHAL PRADESH, INDIA',line:'A little further. A world apart.',date:'DATES TO BE ANNOUNCED',route:'Chandigarh / Spiti / Chandigarh',facts:'8 days / 7 nights · 12 guests',href:'/curated/spiti',images:['/images/spiti/valley.webp','/images/spiti/monastery.webp','/images/spiti/lake.webp'],alts:['The mountain landscape of Spiti Valley','A monastery among Spiti’s mountains','Chandratal Lake in the Himalayas']}
 ];
 export default function TripCarousel(){
