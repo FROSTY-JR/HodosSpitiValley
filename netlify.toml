@@ -42,3 +42,8 @@
   from = "/experiences/coorg"
   to = "/experiences/coorg.html"
   status = 200
+
+[[redirects]]
+  from = "/curated/navratri"
+  to = "/curated/navratri.html"
+  status = 200
