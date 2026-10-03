@@ -45,7 +45,7 @@ export default function Analytics() {
   useEffect(() => {
     if (!ready) return;
     if (consent !== 'accepted') {
-      start();
+      stop();
       return;
     }
     let disposed = false;
