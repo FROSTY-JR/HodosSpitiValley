@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Pause, Play } from 'lucide-react';
+import { Pause, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 const trips = [
   {
     name: 'Navratri',
@@ -214,10 +214,10 @@ export default function TripCarousel() {
             </button>
           )}
           <button onClick={() => select(index - 1)} aria-label="Previous trip">
-            <span>Previous</span>
+            <ChevronLeft size={24} aria-hidden="true" />
           </button>
           <button onClick={() => select(index + 1)} aria-label="Next trip">
-            <span>Next</span>
+            <ChevronRight size={24} aria-hidden="true" />
           </button>
         </div>
       </div>
