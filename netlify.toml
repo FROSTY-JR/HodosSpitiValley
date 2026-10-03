@@ -49,3 +49,8 @@
   from = "/curated/navratri"
   to = "/curated/navratri.html"
   status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
