@@ -13,7 +13,7 @@ export default function Privacy() {
       <p>
         Only after you accept, we send selected page views and interactions to
         our EU-hosted PostHog project. These include trip views, itinerary
-        download clicks, phone or Instagram clicks, gallery opens, magazine
+        download clicks, phone, WhatsApp or Instagram clicks, gallery opens, magazine
         interactions, scroll milestones and an estimate of active browsing time.
         We also group referring traffic into broad sources such as Google,
         Instagram or direct visits.
@@ -47,13 +47,13 @@ export default function Privacy() {
         Netlify processes request logs to deliver and protect the site
         independently of optional analytics. Pages also use Google Fonts and
         some images from Unsplash; requests to those providers disclose network
-        information. Following Instagram links opens a separate service with its
+        information. Following WhatsApp or Instagram links opens a separate service with its
         own privacy practices.
       </p>
       <h2>Contact</h2>
       <p>
         For questions or privacy requests, contact Hódos on{' '}
-        <a href="tel:+917676393083">+91 76763 93083</a> or{' '}
+        <a href="tel:+917676123083">+91 76761 23083</a> or{' '}
         <a
           href="https://www.instagram.com/hodos.international/"
           target="_blank"

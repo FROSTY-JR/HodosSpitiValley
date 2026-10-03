@@ -125,6 +125,15 @@ export default function Analytics() {
             track('enquiry_clicked', { channel: 'instagram' });
             return;
           }
+          if (u.hostname === 'wa.me' || u.hostname === 'chat.whatsapp.com') {
+            track('enquiry_clicked', {
+              channel:
+                u.hostname === 'wa.me'
+                  ? 'whatsapp_planner'
+                  : 'whatsapp_community',
+            });
+            return;
+          }
           if (u.origin !== location.origin) return;
           if (
             [

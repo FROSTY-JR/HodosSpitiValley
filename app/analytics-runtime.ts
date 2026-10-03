@@ -28,6 +28,8 @@ const paths = [
   '/experiences/coorg',
   '/experiences/varanasi',
   '/privacy',
+  '/about',
+  '/contact',
 ];
 export function safePath(path: string) {
   return paths.includes(path.replace(/\/$/, '') || '/')

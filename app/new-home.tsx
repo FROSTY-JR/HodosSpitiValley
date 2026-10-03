@@ -1,14 +1,146 @@
-
 import Atmosphere from './atmosphere';
 import TripCarousel from './trip-carousel';
 import { ExperienceCollection } from './experience-components';
-import { experiences } from './experience-data';
+import { ContactActions } from './contact-actions';
 
-export default function Home(){return <main id="main-content" className="home-page">
-<section className="cinema-hero"><Atmosphere src="/images/hodos-courtyard.webp"/><div className="cinema-vignette"/><div className="cinema-copy"><p className="eyebrow">INDIA, BEYOND THE ORDINARY</p><h1 className="experiential-headline"><span>Discover</span><em>Experiential<br/>Travelling</em><span>with Hódos</span></h1><p className="cinema-subtitle">Follow a quieter path.<br/>Find a different kind of journey.</p><a className="scene-cta" href="#experiences">Step into the unfamiliar </a></div><div className="cinema-bottom"><span>01 / THE FIRST STEP</span><a href="#upcoming"><span className="scroll-track"/>SCROLL TO WANDER </a><span>A WORLD INSPIRED BY HAMPI</span></div></section>
-<section className="upcoming-trips section" id="upcoming"><div className="section-heading"><div><p className="eyebrow">UPCOMING TRIPS / HÓDOS CURATED</p><h2>Your next <em>chapter.</em></h2></div><a className="text-link" href="/curated">Explore Curated </a></div><TripCarousel/></section>
-<section id="experiences" className="home-experiences section"><div className="section-heading"><div><p className="eyebrow">HÓDOS ORIGINALS</p><h2>Not places.<br/><em>Moments.</em></h2></div><a className="text-link" href="/originals">Explore Originals </a></div><ExperienceCollection/></section>
-<section className="hodos-visual-story" id="path"><div className="hodos-story-photo"><img src={experiences[2].image} alt="A quiet path under Coorg’s green canopy" loading="lazy"/><span>COORG, KARNATAKA / ROOM TO BREATHE</span></div><div className="hodos-story-copy"><p className="eyebrow">THE HÓDOS WAY</p><h2>You’ve been places.<br/>But have you been <em>moved?</em></h2><p>Quiet corners. Local perspectives.<br/>Moments you could never put on a checklist.</p><a className="text-link" href="/originals">Find your kind of elsewhere </a><div className="path-signature"><img className="signature-logo" src="/images/hodos-logo.png" alt="Hódos" width="150" height="43"/> <span>Greek for “the way”. An invitation to find yours.</span></div></div></section>
-<section className="home-how section" id="how-it-works"><div className="section-heading"><div><p className="eyebrow">AN UNCOMPLICATED WAY TO GO</p><h2>Follow <em>the feeling.</em></h2></div></div><div className="how-grid"><article><span>01 / FIND</span><h3>Something speaks to you.</h3><p>Choose a moment or a whole journey.</p></article><article><span>02 / CONNECT</span><h3>One real conversation.</h3><p>Confirm the dates and details with Hódos.</p></article><article><span>03 / ARRIVE</span><h3>Bring your curiosity.</h3><p>Keep a little room for the unexpected.</p></article></div></section>
-<section className="home-invitation"><img src="/images/hodos-courtyard.webp" alt="" loading="lazy"/><div><p className="eyebrow">THE WAY, LESS TAKEN</p><h2>The world still has<br/><em>something for you.</em></h2><a className="scene-cta" href="https://www.instagram.com/hodos.international/" target="_blank" rel="noopener noreferrer">Let’s find it </a></div></section>
-</main>}
+export default function Home() {
+  return (
+    <main id="main-content" className="home-page">
+      <section className="cinema-hero">
+        <Atmosphere src="/images/hodos-courtyard.webp" />
+        <div className="cinema-vignette" />
+        <div className="cinema-copy">
+          <p className="eyebrow">INDIA, BEYOND THE ORDINARY</p>
+          <h1 className="experiential-headline">
+            <span>Discover</span>
+            <strong>
+              Experiential
+              <br />
+              travelling.
+            </strong>
+            <span>With Hódos.</span>
+          </h1>
+          <p className="cinema-subtitle">
+            Meet the people. Feel the place.
+            <br />
+            Come home with a story of your own.
+          </p>
+          <a className="hodos-action" href="/contact">
+            Contact us &amp; plan your trip
+          </a>
+        </div>
+        <div className="cinema-bottom">
+          <span>TRAVEL, FELT DIFFERENTLY</span>
+          <a href="#upcoming">DISCOVER UPCOMING TRIPS</a>
+          <span>A WORLD INSPIRED BY HAMPI</span>
+        </div>
+      </section>
+      <section className="upcoming-trips section" id="upcoming">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">HÓDOS CURATED</p>
+            <h2>Upcoming trips.</h2>
+            <p className="section-description">
+              The dates, the destination, and something worth going for.
+            </p>
+          </div>
+          <a className="hodos-action secondary" href="/curated">
+            View all trips
+          </a>
+        </div>
+        <TripCarousel />
+      </section>
+      <section id="experiences" className="home-experiences section">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">A DIFFERENT WAY TO EXPLORE</p>
+            <h2>Hódos Originals.</h2>
+            <p className="originals-explainer">
+              Experiences built around a place, not a packed schedule. A morning
+              in Hampi, an evening on the ghats, a slower day in Coorg. Pick
+              what draws you in; we’ll talk through the details.
+            </p>
+          </div>
+          <a className="hodos-action" href="/originals">
+            Discover Originals
+          </a>
+        </div>
+        <ExperienceCollection />
+      </section>
+      <section className="hodos-visual-story" id="path">
+        <div className="hodos-story-photo">
+          <img
+            src="/images/navratri/dandiya.webp"
+            alt="Colourful dandiya sticks brought together for a night of celebration"
+            loading="lazy"
+          />
+          <span>SHARED EXPERIENCES / NEW CONNECTIONS</span>
+        </div>
+        <div className="hodos-story-copy">
+          <p className="eyebrow">THE HÓDOS WAY</p>
+          <h2>
+            Go for the place.
+            <br />
+            Stay for the connections.
+          </h2>
+          <p>
+            From a first surf lesson to a night of Garba, we make space for the
+            experiences you came for—and the conversations along the way.
+          </p>
+          <a className="hodos-action secondary" href="/about">
+            Get to know Hódos
+          </a>
+        </div>
+      </section>
+      <section className="home-how section" id="how-it-works">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">FROM AN IDEA TO A JOURNEY</p>
+            <h2>Your trip, in three steps.</h2>
+          </div>
+        </div>
+        <ol className="planning-flow">
+          <li>
+            <span>01</span>
+            <h3>Choose your experience.</h3>
+            <p>
+              Explore an upcoming trip or tell us the place you have in mind.
+            </p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Talk to your planner.</h3>
+            <p>
+              Discuss dates, budget and what you’d love to do, directly on
+              WhatsApp.
+            </p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Confirm &amp; get ready.</h3>
+            <p>
+              Review the itinerary, inclusions and arrangements with us before
+              booking.
+            </p>
+          </li>
+        </ol>
+        <a className="hodos-action" href="/contact">
+          Let’s plan your trip
+        </a>
+      </section>
+      <section className="home-invitation">
+        <img src="/images/varkala/sunset.webp" alt="" loading="lazy" />
+        <div>
+          <p className="eyebrow">GOOD PLACES. GOOD COMPANY.</p>
+          <h2>
+            Make room for
+            <br />
+            your next adventure.
+          </h2>
+          <p>Have a trip in mind? Let’s make a plan.</p>
+          <ContactActions />
+        </div>
+      </section>
+    </main>
+  );
+}
