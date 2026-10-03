@@ -1,0 +1,76 @@
+.analytics-settings {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  z-index: 45;
+  border: 1px solid #efdcb866;
+  border-radius: 20px;
+  padding: 9px 14px;
+  background: #153f31;
+  color: #efdcb8;
+  font: 11px var(--font-sans);
+}
+.analytics-banner {
+  position: fixed;
+  bottom: 55px;
+  left: 20px;
+  z-index: 100;
+  width: min(520px, calc(100vw - 40px));
+  max-height: 80svh;
+  overflow: auto;
+  padding: 25px;
+  background: #efe5d2;
+  color: #153f31;
+  box-shadow: 0 15px 65px #0007;
+  border: 1px solid #ad622f66;
+  border-radius: 5px;
+}
+.analytics-banner h2 {
+  font-size: 30px;
+  margin: 0 0 12px;
+}
+.analytics-banner p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.analytics-banner a {
+  text-decoration: underline;
+}
+.analytics-banner > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.analytics-banner button {
+  background: #153f31;
+  color: #efdcb8;
+  border: 1px solid #153f31;
+  padding: 12px 15px;
+  font-size: 12px;
+}
+.analytics-banner button:focus-visible,
+.analytics-settings:focus-visible {
+  outline: 3px solid #ad622f;
+  outline-offset: 3px;
+}
+.privacy-page {
+  max-width: 900px;
+  margin: auto;
+  padding: 170px 7% 100px;
+}
+.privacy-page h1 {
+  font-size: clamp(42px, 6vw, 70px);
+}
+.privacy-page h2 {
+  font-size: 30px;
+  margin: 35px 0 15px;
+}
+.privacy-page p,
+.privacy-page li {
+  line-height: 1.8;
+  margin: 12px 0;
+}
+.privacy-page a {
+  text-decoration: underline;
+}

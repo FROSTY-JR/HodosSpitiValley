@@ -10,6 +10,8 @@
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
@@ -46,4 +48,9 @@
 [[redirects]]
   from = "/curated/navratri"
   to = "/curated/navratri.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
   status = 200
