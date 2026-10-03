@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ContactActions } from './contact-actions';
+import { ContactActions, COMMUNITY_URL } from './contact-actions';
 import { Menu, X } from 'lucide-react';
 
 export function SiteHeader() {
@@ -66,9 +66,19 @@ export function SiteHeader() {
             </a>
           ))}
         </nav>
-        <a className="nav-cta" href="/contact">
-          Contact us{' '}
-        </a>
+        <div className="header-actions">
+          <a className="nav-cta" href="/contact">
+            Contact us
+          </a>
+          <a
+            className="nav-community"
+            href={COMMUNITY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join the community
+          </a>
+        </div>
         <button
           className="menu-toggle"
           aria-label={open ? 'Close navigation' : 'Open navigation'}
