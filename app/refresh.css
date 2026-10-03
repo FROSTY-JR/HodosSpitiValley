@@ -1,0 +1,751 @@
+/* Welcoming editorial layer: shared actions, readable trip details, clear sections. */
+:root {
+  --cream: #fff0b5;
+  --gold: #eee0ac;
+  --muted: #c5cec1;
+  --ink: #122b24;
+  --raised: #1b372e;
+}
+.hodos-action,
+main a[download] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 15px 23px;
+  border: 1px solid #fff0b5;
+  border-radius: 5px;
+  background: #fff0b5;
+  color: #153f31;
+  font: 600 14px/1.45 var(--font-sans);
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0;
+  box-shadow: 0 3px 0 #00000012;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  cursor: pointer;
+}
+.hodos-action:hover,
+main a[download]:hover {
+  background: #fff7db;
+  transform: translateY(-2px);
+}
+.hodos-action.secondary {
+  background: transparent;
+  color: var(--cream);
+  border-color: currentColor;
+}
+.hodos-action.secondary:hover {
+  background: #ffffff10;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #d8a45f;
+  outline-offset: 5px;
+}
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.contact-actions .hodos-action {
+  max-width: 100%;
+}
+.nav.scrolled {
+  background: #153f31f5;
+}
+.nav-cta {
+  background: var(--cream);
+  color: #153f31;
+  border-color: var(--cream);
+  font-weight: 600;
+  border-radius: 4px;
+}
+.nav-cta:hover {
+  background: #fff7db;
+}
+.nav {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.nav > nav {
+  gap: 25px;
+}
+.cinema-hero {
+  min-height: 760px;
+  height: 95svh;
+  max-height: 1100px;
+}
+.cinema-copy {
+  padding: 190px 7% 130px;
+  max-width: 760px;
+  position: relative;
+  pointer-events: none;
+}
+.cinema-copy a {
+  pointer-events: auto;
+}
+.cinema-copy .experiential-headline {
+  font-size: clamp(45px, 4.7vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -1px;
+  margin: 23px 0;
+  color: #fff0b5;
+  font-style: normal;
+  font-weight: 500;
+}
+.experiential-headline > span {
+  font: 500 0.48em/1.4 var(--font-serif);
+  margin: 0;
+  letter-spacing: 0;
+}
+.experiential-headline > strong {
+  display: block;
+  font-weight: 500;
+  margin: 12px 0;
+  line-height: 1.04;
+}
+.cinema-copy .cinema-subtitle {
+  font: 400 16px/1.75 var(--font-sans);
+  margin: 24px 0 28px;
+  max-width: 390px;
+  color: #f5ecd2;
+}
+.cinema-vignette {
+  background:
+    linear-gradient(90deg, #0b241cda, #0b241c55 48%, transparent 78%),
+    linear-gradient(0deg, #122b24, transparent 27%);
+}
+.cinema-bottom {
+  font-size: 10px;
+  gap: 20px;
+  bottom: 27px;
+}
+.home-page .section {
+  padding-top: 68px;
+  padding-bottom: 68px;
+}
+.home-page .section-heading {
+  margin-bottom: 28px;
+  gap: 28px;
+  align-items: center;
+}
+.home-page .section-heading h2 {
+  font-size: clamp(40px, 4.5vw, 66px);
+  margin: 10px 0 14px;
+  line-height: 1.05;
+}
+.home-page .section-description {
+  font-size: 16px;
+  max-width: 540px;
+  line-height: 1.7;
+  margin: 0;
+}
+.upcoming-trips {
+  background: #122b24;
+}
+.upcoming-card {
+  display: grid;
+  grid-template-columns: 1.12fr 1fr;
+  background: #f7efd9;
+  color: #153f31;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.upcoming-cover {
+  position: relative;
+  min-height: 570px;
+  height: auto;
+}
+.upcoming-cover:after {
+  background: linear-gradient(0deg, #153f3160, transparent 40%);
+}
+.upcoming-cover > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.upcoming-edition {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  z-index: 2;
+  color: #fff8df;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.upcoming-editorial {
+  padding: 32px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 0;
+}
+.upcoming-editorial .upcoming-date {
+  position: static;
+  display: inline-block;
+  background: #e6d9b3;
+  color: #153f31;
+  font: 600 13px/1.5 var(--font-sans);
+  letter-spacing: 0.5px;
+  border: 0;
+  border-radius: 3px;
+  padding: 8px 12px;
+  margin-bottom: 23px;
+}
+.upcoming-editorial .eyebrow {
+  color: #58664c;
+  font-size: 11px;
+  margin: 0;
+}
+.upcoming-editorial h3 {
+  font: 500 clamp(42px, 4vw, 62px)/1 var(--font-serif);
+  margin: 9px 0 15px;
+}
+.trip-usp {
+  font: 500 24px/1.25 var(--font-serif);
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+.trip-readable-facts {
+  font: 600 16px/1.6 var(--font-sans);
+  border-top: 1px solid #153f3125;
+  padding-top: 16px;
+  width: 100%;
+  color: #153f31;
+}
+.trip-route-label {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #52624f;
+  margin: 6px 0 20px;
+}
+.upcoming-editorial .hodos-action {
+  background: #153f31;
+  color: #fff0b5;
+  border-color: #153f31;
+}
+.upcoming-editorial .hodos-action:hover {
+  background: #27543f;
+}
+.upcoming-miniatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin-top: 25px;
+}
+.upcoming-miniatures img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.carousel-controls {
+  padding: 20px 0 0;
+  gap: 20px;
+}
+.carousel-actions {
+  flex-shrink: 0;
+  align-items: center;
+}
+.carousel-actions button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-width: 48px;
+  height: 48px;
+  padding: 10px 19px;
+  border: 1px solid #e9dca77a;
+  border-radius: 4px;
+  font: 500 13px var(--font-sans);
+  color: #fff0b5;
+}
+.carousel-actions button:hover {
+  background: #fff0b5;
+  color: #153f31;
+}
+.trip-selectors {
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.trip-selectors > button {
+  min-width: 110px;
+  font-size: 14px;
+  gap: 8px;
+}
+.home-experiences {
+  background: #f7efd9;
+  color: #153f31;
+  max-width: none;
+}
+.home-experiences .eyebrow,
+.home-experiences .destination-card > .eyebrow {
+  color: #725328;
+}
+.home-experiences .originals-explainer {
+  font: 400 16px/1.85 var(--font-sans);
+  max-width: 630px;
+  color: #4f604e;
+  margin-top: 18px;
+}
+.home-experiences .section-heading {
+  align-items: end;
+  margin-bottom: 38px;
+}
+.home-experiences .hodos-action {
+  background: #153f31;
+  color: #fff0b5;
+  border-color: #153f31;
+  flex-shrink: 0;
+}
+.home-experiences .destination-summary {
+  color: #4f604e;
+}
+.home-experiences .text-link {
+  color: #153f31;
+  border-color: #153f3150;
+}
+.home-experiences h3 {
+  color: #153f31;
+}
+.hodos-visual-story {
+  background: #244737;
+}
+.hodos-story-copy h2 {
+  font-size: clamp(40px, 4vw, 60px);
+  line-height: 1.08;
+}
+.hodos-story-copy > p:not(.eyebrow) {
+  font-size: 17px;
+  line-height: 1.85;
+  max-width: 450px;
+  margin: 24px 0;
+}
+.hodos-story-photo img {
+  filter: none;
+}
+.hodos-story-copy .hodos-action {
+  margin-top: 10px;
+}
+.planning-flow {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  padding: 0;
+  margin: 40px 0;
+}
+.planning-flow li {
+  position: relative;
+  border-top: 1px solid #eee0ac60;
+  padding-top: 28px;
+}
+.planning-flow li > span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #eee0ac;
+  border-radius: 50%;
+  color: #fff0b5;
+  font: 24px var(--font-serif);
+  margin-bottom: 22px;
+  background: #244737;
+}
+.planning-flow h3 {
+  font: 500 30px/1.2 var(--font-serif);
+  margin-bottom: 14px;
+}
+.planning-flow p {
+  font: 400 15px/1.8 var(--font-sans);
+  color: var(--muted);
+  max-width: 320px;
+}
+.planning-flow li:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.planning-flow li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@supports (animation-timeline: view()) {
+  .planning-flow li {
+    animation: flow-arrive 0.8s both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+@keyframes flow-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.home-invitation {
+  min-height: 580px;
+}
+.home-invitation h2 {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.05;
+  margin: 20px 0;
+}
+.home-invitation > div > p:not(.eyebrow) {
+  font-size: 17px;
+  margin: 20px 0;
+}
+.home-invitation > img {
+  filter: brightness(0.38) saturate(0.8);
+}
+.home-invitation > div {
+  max-width: 900px;
+  padding: 60px 6%;
+}
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding-bottom: 46px;
+  margin-bottom: 46px;
+  border-bottom: 1px solid var(--line);
+}
+.footer-contact h2 {
+  font-size: 40px;
+  margin: 12px 0;
+}
+.footer-contact p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.footer-contact .contact-actions {
+  justify-content: flex-start;
+  margin: 0;
+  max-width: 370px;
+}
+.enquiry-panel .contact-actions {
+  margin: 30px auto 0;
+}
+.enquiry-panel .contact-actions a {
+  margin: 0;
+}
+.trip-actions {
+  gap: 14px;
+}
+.trip-facts strong {
+  font-size: clamp(22px, 2.3vw, 32px);
+}
+.info-page {
+  padding: 175px 7% 85px;
+  background: #f7efd9;
+  color: #153f31;
+  min-height: 80svh;
+}
+.info-page > .eyebrow {
+  color: #78592d;
+}
+.info-page h1 {
+  font: 500 clamp(44px, 6vw, 84px)/1.03 var(--font-serif);
+  margin: 22px 0;
+}
+.info-lead {
+  font: 400 18px/1.8 var(--font-sans);
+  max-width: 720px;
+  margin-bottom: 45px;
+}
+.contact-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.contact-options article {
+  padding: 36px;
+  border: 1px solid #153f3130;
+  border-radius: 6px;
+  background: #fff9e9;
+}
+.contact-options .eyebrow {
+  color: #78592d;
+}
+.contact-options h2 {
+  font-size: 40px;
+  margin: 18px 0;
+}
+.contact-options p {
+  font: 400 16px/1.85 var(--font-sans);
+  margin-bottom: 25px;
+  max-width: 420px;
+}
+.info-page .hodos-action {
+  background: #153f31;
+  color: #fff0b5;
+  border-color: #153f31;
+}
+.info-page .hodos-action.secondary {
+  background: transparent;
+  color: #153f31;
+}
+.contact-call {
+  display: block;
+  width: fit-content;
+  font-size: 15px;
+  margin-top: 20px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.about-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-editorial img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.about-editorial h2 {
+  font-size: 48px;
+  line-height: 1.05;
+}
+.about-editorial h3 {
+  font-size: 30px;
+  margin: 25px 0 15px;
+}
+.about-editorial p {
+  font-size: 16px;
+  line-height: 1.85;
+  margin: 20px 0;
+}
+@media (min-width: 1600px) {
+  .cinema-copy {
+    padding-top: 220px;
+    max-width: 850px;
+  }
+  .cinema-copy .experiential-headline {
+    font-size: 76px;
+  }
+}
+@media (max-width: 1000px) {
+  .upcoming-cover {
+    min-height: 540px;
+  }
+  .upcoming-editorial {
+    padding: 28px;
+  }
+  .carousel-controls {
+    flex-wrap: wrap;
+  }
+  .footer-contact {
+    align-items: start;
+  }
+  .trip-selectors {
+    gap: 18px;
+  }
+  .nav > nav {
+    gap: 18px;
+  }
+  .about-editorial {
+    gap: 30px;
+  }
+}
+@media (max-width: 760px) {
+  .cinema-hero {
+    height: auto;
+    min-height: 780px;
+    max-height: none;
+  }
+  .cinema-copy {
+    padding: 170px 7% 135px;
+    max-width: none;
+  }
+  .cinema-copy .experiential-headline {
+    font-size: clamp(43px, 10.8vw, 65px);
+    max-width: 520px;
+  }
+  .cinema-copy .cinema-subtitle {
+    font-size: 15px;
+    max-width: 340px;
+  }
+  .cinema-bottom {
+    font-size: 9px;
+  }
+  .cinema-bottom > span:first-child {
+    max-width: 100px;
+  }
+  .home-page .section {
+    padding: 50px 6%;
+  }
+  .home-page .section-heading {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .home-page .section-heading h2 {
+    font-size: 44px;
+  }
+  .upcoming-card {
+    grid-template-columns: 1fr;
+  }
+  .upcoming-cover {
+    min-height: 0;
+    height: 290px;
+  }
+  .upcoming-editorial {
+    padding: 25px;
+  }
+  .upcoming-editorial h3 {
+    font-size: 46px;
+  }
+  .upcoming-editorial .upcoming-date {
+    margin-bottom: 17px;
+  }
+  .trip-usp {
+    font-size: 25px;
+    min-height: 63px;
+  }
+  .trip-readable-facts {
+    font-size: 15px;
+  }
+  .upcoming-miniatures {
+    display: none;
+  }
+  .upcoming-editorial .hodos-action {
+    width: 100%;
+  }
+  .carousel-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .trip-selectors {
+    gap: 12px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  .trip-selectors > button {
+    min-width: 0;
+    flex: 1;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .trip-selectors > button > span {
+    display: none;
+  }
+  .carousel-actions {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .carousel-actions button {
+    padding: 10px 18px;
+  }
+  .planning-flow {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 25px 0 30px;
+  }
+  .planning-flow li {
+    padding: 0 0 28px 70px;
+    border-top: 0;
+    border-left: 1px solid #eee0ac60;
+    margin-left: 23px;
+    min-height: 145px;
+  }
+  .planning-flow li:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+  }
+  .planning-flow li > span {
+    position: absolute;
+    left: -23px;
+    top: 0;
+  }
+  .planning-flow h3 {
+    font-size: 29px;
+  }
+  .planning-flow p {
+    max-width: none;
+  }
+  .hodos-story-copy h2 {
+    font-size: 43px;
+  }
+  .footer-contact {
+    flex-direction: column;
+    gap: 22px;
+  }
+  .footer-contact h2 {
+    font-size: 37px;
+  }
+  .footer-contact .contact-actions {
+    width: 100%;
+    max-width: none;
+  }
+  .footer-contact .contact-actions a {
+    width: 100%;
+  }
+  .home-invitation .contact-actions,
+  .enquiry-panel .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .home-invitation h2 {
+    font-size: 46px;
+  }
+  .info-page {
+    padding: 150px 7% 65px;
+  }
+  .info-lead {
+    font-size: 16px;
+  }
+  .contact-options,
+  .about-editorial {
+    grid-template-columns: 1fr;
+  }
+  .contact-options article {
+    padding: 26px;
+  }
+  .contact-options .hodos-action {
+    width: 100%;
+  }
+  .about-editorial img {
+    height: 350px;
+  }
+  .about-editorial h2 {
+    font-size: 40px;
+  }
+  .trip-actions a[download] {
+    width: auto;
+    min-width: 210px;
+  }
+  .nav-cta {
+    font-size: 12px;
+    padding: 10px 13px;
+  }
+  .nav {
+    gap: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .planning-flow li {
+    animation: none;
+  }
+  .hodos-action:hover,
+  main a[download]:hover {
+    transform: none;
+  }
+}
