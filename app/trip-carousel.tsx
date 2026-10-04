@@ -171,7 +171,7 @@ export default function TripCarousel() {
                 <p className="trip-readable-facts">{trip.facts}</p>
                 <p className="trip-route-label">{trip.route}</p>
                 <a className="hodos-action" href={trip.href}>
-                  Explore the itinerary
+                  See the plan. Feel the trip.
                 </a>
                 <div className="upcoming-miniatures">
                   <img src={trip.images[1]} alt={trip.alts[1]} loading="lazy" />

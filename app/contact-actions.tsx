@@ -3,13 +3,8 @@ export const COMMUNITY_URL = 'https://chat.whatsapp.com/F6DzON5XORd5eymcKdNGKj';
 export function ContactActions() {
   return (
     <div className="contact-actions">
-      <a
-        className="hodos-action"
-        href={CONTACT_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Contact the trip planner
+      <a className="hodos-action" href="/contact">
+        Let’s talk trips
       </a>
       <a
         className="hodos-action secondary"
@@ -17,7 +12,7 @@ export function ContactActions() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Join our WhatsApp community
+        Join the travel circle
       </a>
     </div>
   );

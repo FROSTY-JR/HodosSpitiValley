@@ -36,7 +36,7 @@ export function SiteHeader() {
       label: 'Curated',
       active: pathname.startsWith('/curated'),
     },
-    { href: '/about', label: 'About us', active: pathname === '/about' },
+    { href: '/about', label: 'This is Hódos', active: pathname === '/about' },
   ];
   return (
     <>
@@ -68,7 +68,7 @@ export function SiteHeader() {
         </nav>
         <div className="header-actions">
           <a className="nav-cta" href="/contact">
-            Contact us
+            Let’s talk
           </a>
           <a
             className="nav-community"
@@ -76,7 +76,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Join the community
+            Join the circle
           </a>
         </div>
         <button
@@ -105,7 +105,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a href="/contact" onClick={() => setOpen(false)}>
-              Contact us
+              Let’s talk
             </a>
             <a href="/#how-it-works" onClick={() => setOpen(false)}>
               How it works
@@ -144,8 +144,8 @@ export function SiteFooter() {
           <p>Travel, felt differently.</p>
         </div>
         <div className="footer-links">
-          <a href="/about">About us</a>
-          <a href="/contact">Contact us</a>
+          <a href="/about">This is Hódos</a>
+          <a href="/contact">Let’s talk</a>
           <a href="/privacy">Privacy</a>
           <a href="/originals">Hódos Originals</a>
           <a href="/curated">Hódos Curated</a>

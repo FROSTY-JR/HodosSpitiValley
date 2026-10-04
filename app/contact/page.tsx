@@ -1,55 +1,42 @@
-import { CONTACT_URL, COMMUNITY_URL } from '../contact-actions';
-export const metadata = { title: 'Contact us | Hódos' };
+import TripPlanner from './trip-planner';
+import { COMMUNITY_URL } from '../contact-actions';
+import '../about/story.css';
+export const metadata = {
+  title: 'Let’s talk trips | Hódos',
+  description:
+    'Request a call with Sanjay or Dhyata, or message the team on WhatsApp. Our text-first trip planner is coming soon.',
+};
 export default function Page() {
   return (
-    <main id="main-content" className="info-page">
-      <p className="eyebrow">LET’S MAKE A PLAN</p>
-      <h1>
-        Where would you
-        <br />
-        love to go?
-      </h1>
-      <p className="info-lead">
-        Tell us your destination, dates, group size and budget. Your Hódos trip
-        planner will help you work through the options.
-      </p>
-      <div className="contact-options">
-        <article>
-          <span className="eyebrow">01 / PLAN WITH US</span>
-          <h2>A real conversation.</h2>
-          <p>
-            Ask about an itinerary, check availability or start planning
-            something personal.
-          </p>
-          <a
-            className="hodos-action"
-            href={CONTACT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact the trip planner
-          </a>
-          <a className="contact-call" href="tel:+917676123083">
-            Or call +91 76761 23083
-          </a>
-        </article>
-        <article>
-          <span className="eyebrow">02 / STAY IN THE LOOP</span>
-          <h2>Your travel people.</h2>
-          <p>
-            Join the Hódos WhatsApp community for upcoming journeys and trip
-            updates.
-          </p>
-          <a
-            className="hodos-action secondary"
-            href={COMMUNITY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join our WhatsApp community
-          </a>
-        </article>
-      </div>
+    <main id="main-content" className="planning-page">
+      <header className="planning-intro">
+        <p className="eyebrow">NO PERFECT PLAN REQUIRED</p>
+        <h1>
+          Got a place in mind?
+          <br />
+          Or just a <em>feeling?</em>
+        </h1>
+        <p>
+          Start with Sanjay or Dhyata. Prefer typing to talking? Message us on WhatsApp instead—no call required.
+        </p>
+      </header>
+      <TripPlanner />
+      <section className="planner-community">
+        <p className="eyebrow">NOT READY TO PLAN YET?</p>
+        <h2>Find your travel people.</h2>
+        <p>Join the Hódos community for upcoming journeys and trip updates.</p>
+        <a
+          className="hodos-action"
+          href={COMMUNITY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the travel circle
+        </a>
+        <a className="contact-call" href="tel:+917676123083">
+          Or call Hódos: +91 76761 23083
+        </a>
+      </section>
     </main>
   );
 }

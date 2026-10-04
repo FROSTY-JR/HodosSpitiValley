@@ -13,10 +13,10 @@ export default function Privacy() {
       <p>
         Only after you accept, we send selected page views and interactions to
         our EU-hosted PostHog project. These include trip views, itinerary
-        download clicks, phone, WhatsApp or Instagram clicks, gallery opens, magazine
-        interactions, scroll milestones and an estimate of active browsing time.
-        We also group referring traffic into broad sources such as Google,
-        Instagram or direct visits.
+        download clicks, phone, WhatsApp or Instagram clicks, gallery opens,
+        magazine interactions, scroll milestones and an estimate of active
+        browsing time. We also group referring traffic into broad sources such
+        as Google, Instagram or direct visits.
       </p>
       <p>
         We do not enable session recordings, automatic form capture or user
@@ -42,13 +42,21 @@ export default function Privacy() {
         plan lists one year of event retention. Account-level retention is
         managed by Hódos; contact us about deletion requests.
       </p>
+      <h2>Call requests</h2>
+      <p>
+        Your preferred call time is held in the current page and is not saved to
+        browser storage or sent to our server. Opening WhatsApp passes your
+        reviewed request to WhatsApp; you decide whether to send it to Hódos
+        there. Availability is confirmed by the team. Our planned text-first
+        trip planner is not live yet.
+      </p>
       <h2>Essential hosting &amp; external services</h2>
       <p>
         Netlify processes request logs to deliver and protect the site
         independently of optional analytics. Pages also use Google Fonts and
         some images from Unsplash; requests to those providers disclose network
-        information. Following WhatsApp or Instagram links opens a separate service with its
-        own privacy practices.
+        information. Following WhatsApp or Instagram links opens a separate
+        service with its own privacy practices.
       </p>
       <h2>Contact</h2>
       <p>
