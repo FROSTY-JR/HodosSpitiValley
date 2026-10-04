@@ -26,7 +26,7 @@ export default function Home() {
             Come home with a story of your own.
           </p>
           <a className="hodos-action" href="/contact">
-            Contact us &amp; plan your trip
+            Let’s make it your trip
           </a>
         </div>
         <div className="cinema-bottom">
@@ -45,7 +45,7 @@ export default function Home() {
             </p>
           </div>
           <a className="hodos-action secondary" href="/curated">
-            View all trips
+            Find my next trip
           </a>
         </div>
         <TripCarousel />
@@ -62,7 +62,7 @@ export default function Home() {
             </p>
           </div>
           <a className="hodos-action" href="/originals">
-            Discover Originals
+            Find my kind of moment
           </a>
         </div>
         <ExperienceCollection />
@@ -79,16 +79,15 @@ export default function Home() {
         <div className="hodos-story-copy">
           <p className="eyebrow">THE HÓDOS WAY</p>
           <h2>
-            Go for the place.
+            Same trip.
             <br />
-            Stay for the connections.
+            Room to be you.
           </h2>
           <p>
-            From a first surf lesson to a night of Garba, we make space for the
-            experiences you came for—and the conversations along the way.
+            Shared experiences bring you together. Personal moments make room for what you love. Tell us your interests, and we’ll explore how to shape the journey around you.
           </p>
           <a className="hodos-action secondary" href="/about">
-            Get to know Hódos
+            This is Hódos
           </a>
         </div>
       </section>
